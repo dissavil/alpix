@@ -1,69 +1,39 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Header from "@/components/layout/Header/Header";
+import Hero from "@/components/sections/Hero/Hero";
+import About from "@/components/sections/About/About";
+import Audiences from "@/components/sections/Audiences/Audiences";
+import Projects from "@/components/sections/Projects/Projects";
+import Services from "@/components/sections/Services/Services";
+import Advantages from "@/components/sections/Advantages/Advantages";
+import Geography from "@/components/sections/Geography/Geography";
+import Contact from "@/components/sections/Contact/Contact";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Header />
+
+      <main id="main">
+        <Hero />
+        <About />
+        <Audiences />
+        <Projects />
+        <Services />
+        <Advantages />
+        <Geography />
+        <Contact />
       </main>
-    </div>
+
+      <footer
+        style={{
+          padding: "22px var(--page-gutter)",
+          color: "var(--alpix-text-light-muted)",
+          background: "var(--alpix-green-dark)",
+          fontSize: "12px",
+        }}
+      >
+        © {new Date().getFullYear()} ALPIX · Строительная компания
+      </footer>
+    </>
   );
 }

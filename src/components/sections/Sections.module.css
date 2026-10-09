@@ -1,0 +1,731 @@
+.sectionInner {
+  width: min(
+    calc(100% - var(--page-gutter) * 2),
+    1280px
+  );
+
+  margin-inline: auto;
+}
+
+.kicker {
+  margin: 0 0 22px;
+
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  max-width: 950px;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 400;
+
+  line-height: 1;
+  letter-spacing: -0.045em;
+
+  text-wrap: balance;
+}
+
+.sectionLead {
+  margin: 0;
+
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.6;
+}
+
+.aboutSection {
+  padding: 120px 0 140px;
+
+  color: var(--alpix-text);
+  background: var(--alpix-ivory);
+}
+
+.aboutHeader {
+  margin-bottom: 72px;
+}
+
+.aboutHeader .kicker,
+.audiencesSection .kicker,
+.servicesSection .kicker,
+.projectsSection .kicker,
+.geographySection .kicker {
+  color: var(--alpix-green);
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+
+  gap: 80px;
+
+  align-items: start;
+}
+
+.aboutLead {
+  max-width: 650px;
+
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.aboutCopy {
+  color: var(--alpix-muted);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.aboutCopy p {
+  margin: 0 0 20px;
+}
+
+.aboutPrinciple {
+  margin-top: 32px;
+  padding: 24px;
+
+  color: var(--alpix-white);
+  background: var(--alpix-green);
+
+  border-radius: var(--radius-md);
+}
+
+.aboutPrinciple span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--alpix-butter);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.aboutPrinciple p {
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* AUDIENCES */
+
+.audiencesSection {
+  padding: 120px 0 140px;
+
+  color: var(--alpix-white);
+  background: var(--alpix-green);
+}
+
+.audiencesSection .kicker {
+  color: var(--alpix-butter);
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 18px;
+
+  margin-bottom: 56px;
+}
+
+.audiencesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.audienceCard {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 320px;
+
+  padding: 28px;
+
+  color: var(--alpix-white);
+  background: rgba(255, 255, 255, 0.055);
+
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: var(--radius-md);
+}
+
+.cardNumber {
+  margin-bottom: 48px;
+
+  color: var(--alpix-butter);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+.audienceCard h3 {
+  margin: 0 0 16px;
+
+  font-family: var(--font-display);
+  font-size: clamp(25px, 2.5vw, 34px);
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.audienceCard p {
+  margin: 0 0 18px;
+
+  color: var(--alpix-text-light-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.audienceCard ul {
+  display: grid;
+  gap: 10px;
+
+  margin: auto 0 0;
+  padding: 20px 0 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+
+  list-style: none;
+}
+
+.audienceCard li {
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* PROJECTS */
+
+.projectsSection {
+  padding: 120px 0 140px;
+
+  color: var(--alpix-text);
+  background: var(--alpix-white);
+}
+
+.projectsHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 32px;
+
+  margin-bottom: 48px;
+}
+
+.projectsHeader .sectionTitle {
+  max-width: 760px;
+}
+
+.projectsIntro {
+  max-width: 340px;
+
+  margin: 0;
+
+  color: var(--alpix-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 36px 20px;
+}
+
+.projectCard {
+  min-width: 0;
+}
+
+.projectVisual {
+  position: relative;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  min-height: 280px;
+
+  aspect-ratio: 1.5 / 1;
+
+  padding: 24px;
+
+  overflow: hidden;
+
+  color: var(--alpix-white);
+  background-color: var(--alpix-green);
+
+  background-size: cover;
+  background-position: center;
+
+  border-radius: var(--radius-md);
+}
+
+.projectVisual::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 35, 31, 0.05) 20%,
+    rgba(0, 35, 31, 0.82) 100%
+  );
+}
+
+.projectLabel,
+.projectVisualNumber {
+  position: relative;
+  z-index: 1;
+}
+
+.projectLabel {
+  color: var(--alpix-butter);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.projectVisualNumber {
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.projectBody {
+  padding: 22px 2px 0;
+}
+
+.projectMeta {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px 18px;
+
+  margin-bottom: 14px;
+
+  color: var(--alpix-muted);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.projectTitle {
+  margin: 0 0 12px;
+
+  font-family: var(--font-display);
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.projectDescription {
+  max-width: 560px;
+
+  margin: 0;
+
+  color: var(--alpix-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.projectFacts {
+  margin: 16px 0 0;
+
+  color: var(--alpix-green);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* SERVICES */
+
+.servicesSection {
+  padding: 120px 0 140px;
+
+  color: var(--alpix-text);
+  background: var(--alpix-ivory);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  margin-top: 56px;
+
+  background: var(--alpix-border);
+
+  border: 1px solid var(--alpix-border);
+  border-radius: var(--radius-md);
+
+  overflow: hidden;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 340px;
+
+  padding: 30px;
+
+  background: var(--alpix-ivory);
+}
+
+.serviceIndex {
+  margin-bottom: 56px;
+
+  color: var(--alpix-green);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+.serviceCard h3 {
+  margin: 0 0 18px;
+
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.serviceCard p {
+  margin: 0 0 24px;
+
+  color: var(--alpix-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.serviceCard ul {
+  display: grid;
+  gap: 12px;
+
+  margin: auto 0 0;
+  padding: 20px 0 0;
+
+  border-top: 1px solid var(--alpix-border);
+
+  list-style: none;
+}
+
+.serviceCard li {
+  position: relative;
+
+  padding-left: 15px;
+
+  color: var(--alpix-text);
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.serviceCard li::before {
+  content: "";
+
+  position: absolute;
+  top: 8px;
+  left: 0;
+
+  width: 5px;
+  height: 5px;
+
+  background: var(--alpix-green);
+  border-radius: 50%;
+}
+
+/* ADVANTAGES */
+
+.advantagesSection {
+  padding: 120px 0 140px;
+
+  color: var(--alpix-white);
+  background: var(--alpix-green);
+}
+
+.advantagesSection .kicker {
+  color: var(--alpix-butter);
+}
+
+.advantagesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 0 32px;
+
+  margin-top: 48px;
+}
+
+.advantageItem {
+  padding: 26px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.advantageItem span {
+  display: block;
+
+  margin-bottom: 26px;
+
+  color: var(--alpix-butter);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+.advantageItem h3 {
+  margin: 0 0 12px;
+
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 400;
+
+  line-height: 1.1;
+}
+
+.advantageItem p {
+  max-width: 360px;
+
+  margin: 0;
+
+  color: var(--alpix-text-light-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* GEOGRAPHY */
+
+.geographySection {
+  padding: 120px 0 140px;
+
+  background: var(--alpix-ivory);
+}
+
+.geographyGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+.geographyText {
+  max-width: 660px;
+}
+
+.geographyText > p:last-child {
+  margin: 24px 0 0;
+
+  color: var(--alpix-muted);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.locationPanel {
+  padding: 32px;
+
+  background: var(--alpix-green);
+  color: var(--alpix-white);
+
+  border-radius: var(--radius-md);
+}
+
+.locationPanelLabel {
+  margin: 0 0 28px;
+
+  color: var(--alpix-butter);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.locationItem {
+  padding: 20px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.locationItem h3 {
+  margin: 0 0 8px;
+
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.locationItem p {
+  margin: 0;
+
+  color: var(--alpix-text-light-muted);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .aboutGrid,
+  .geographyGrid {
+    grid-template-columns: 1fr;
+
+    gap: 36px;
+  }
+
+  .audiencesGrid,
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .audienceCard,
+  .serviceCard {
+    min-height: 0;
+  }
+
+  .audienceCard ul,
+  .serviceCard ul {
+    margin-top: 0;
+  }
+
+  .advantagesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .projectsHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutSection,
+  .audiencesSection,
+  .projectsSection,
+  .servicesSection,
+  .advantagesSection,
+  .geographySection {
+    padding: 80px 0 90px;
+  }
+
+  .aboutHeader {
+    margin-bottom: 40px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 36px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .aboutLead {
+    font-size: 31px;
+  }
+
+  .audiencesGrid {
+    gap: 12px;
+  }
+
+  .audienceCard {
+    padding: 24px;
+  }
+
+  .cardNumber {
+    margin-bottom: 32px;
+  }
+
+  .projectGrid {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .projectVisual {
+    min-height: 230px;
+
+    padding: 18px;
+  }
+
+  .projectTitle {
+    font-size: 30px;
+  }
+
+  .servicesGrid {
+    margin-top: 36px;
+  }
+
+  .serviceCard {
+    padding: 24px;
+  }
+
+  .serviceIndex {
+    margin-bottom: 36px;
+  }
+
+  .advantagesGrid {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .advantageItem {
+    padding: 22px 0;
+  }
+
+  .advantageItem span {
+    margin-bottom: 18px;
+  }
+
+  .locationPanel {
+    padding: 24px;
+  }
+}
