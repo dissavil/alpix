@@ -1,237 +1,251 @@
 .hero {
   position: relative;
   isolation: isolate;
-
   display: flex;
-  align-items: center;
-
+  min-height: 100vh;
   min-height: 100svh;
-
   overflow: hidden;
 
-  color: var(--alpix-text-light);
-  background-color: var(--alpix-green);
-
+  background-color: var(--alpix-green-dark);
   background-image:
     linear-gradient(
       90deg,
-      rgba(0, 35, 31, 0.92) 0%,
-      rgba(0, 54, 49, 0.78) 48%,
-      rgba(0, 54, 49, 0.48) 100%
+      rgba(0, 25, 21, 0.88) 0%,
+      rgba(0, 35, 30, 0.68) 45%,
+      rgba(0, 27, 23, 0.3) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(0, 35, 31, 0.48),
-      transparent 65%
+      rgba(0, 20, 17, 0.4),
+      transparent 45%
     ),
     url("/images/hero/alpix-residential.webp");
 
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
-.dots {
+.terrain {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
 
   pointer-events: none;
+}
 
+/* Топографические линии */
+
+.contour {
+  fill: none;
+  stroke: rgba(245, 244, 236, 0.42);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
   opacity: 0;
 
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.8) 0.8px,
-    transparent 1px
-  );
-
-  background-size: 16px 16px;
-
-  mask-image: linear-gradient(
-    90deg,
-    #000 0%,
-    rgba(0, 0, 0, 0.55) 38%,
-    transparent 75%
-  );
-
-  animation: dotsReveal 1200ms ease-out 200ms both;
+  animation: drawContour 3s var(--ease-out) forwards;
+  vector-effect: non-scaling-stroke;
 }
+
+.contour1 {
+  animation-delay: 0.15s;
+}
+
+.contour2 {
+  animation-delay: 0.3s;
+}
+
+.contour3 {
+  animation-delay: 0.45s;
+}
+
+.contour4 {
+  animation-delay: 0.6s;
+}
+
+.contour5 {
+  animation-delay: 0.75s;
+}
+
+.contour6 {
+  animation-delay: 0.9s;
+}
+
+/* Главный контур участка */
+
+.plotBoundary {
+  fill: rgba(255, 237, 168, 0.035);
+  stroke: var(--alpix-butter);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  opacity: 0;
+
+  animation: drawPlot 1.8s var(--ease-out) 1.3s forwards;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 8px rgba(255, 237, 168, 0.18));
+}
+
+.plotDetail {
+  fill: none;
+  stroke: rgba(255, 237, 168, 0.65);
+  stroke-width: 1;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  opacity: 0;
+
+  animation: drawPlot 1.5s var(--ease-out) 2s forwards;
+  vector-effect: non-scaling-stroke;
+}
+
+.plotPoint {
+  fill: var(--alpix-butter);
+  opacity: 0;
+
+  animation: showPoint 0.4s ease 2.7s forwards;
+}
+
+/* Текст */
 
 .content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   display: flex;
   align-items: center;
-  justify-content: center;
 
   width: 100%;
+  min-height: 100vh;
   min-height: 100svh;
 
-  padding: 100px var(--page-gutter) 40px;
+  padding: 110px var(--page-gutter) 70px;
 }
 
 .copy {
-  width: 100%;
-  max-width: 1120px;
-
-  margin-inline: auto;
-
-  text-align: center;
+  width: min(100%, 680px);
+  margin-left: clamp(0px, 3vw, 48px);
 }
 
 .title {
   margin: 0;
+  color: var(--alpix-white);
 
-  color: var(--alpix-text-light);
   font-family: var(--font-display);
-
-  font-size: clamp(88px, 16vw, 220px);
+  font-size: clamp(5rem, 13vw, 11.5rem);
   font-weight: 400;
-
   line-height: 0.85;
-  letter-spacing: -0.075em;
-
-  text-align: center;
-
-  opacity: 0;
-  filter: blur(8px);
-  transform: translateY(26px);
-
-  animation: heroTitleReveal 1000ms
-    cubic-bezier(0.22, 1, 0.36, 1)
-    150ms both;
+  letter-spacing: -0.065em;
 }
-
 
 .description {
-  max-width: 690px;
-
-  margin: 28px auto 0;
+  max-width: 520px;
+  margin: 30px 0 0;
 
   color: rgba(255, 255, 255, 0.86);
-
-  font-family: var(--font-body);
-
-  font-size: clamp(16px, 1.5vw, 19px);
-  font-weight: 400;
-
-  line-height: 1.7;
-
-  text-wrap: balance;
-
-  opacity: 0;
-  filter: blur(5px);
-  transform: translateY(18px);
-
-  animation: heroDescriptionReveal 850ms
-    cubic-bezier(0.22, 1, 0.36, 1)
-    380ms both;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.65;
 }
 
-/* Initial appearance */
+/* Анимации линий */
 
-@keyframes heroTitleReveal {
+@keyframes drawContour {
   from {
+    stroke-dashoffset: 1600;
     opacity: 0;
-    filter: blur(8px);
-    transform: translateY(26px);
   }
 
+  to {
+    stroke-dashoffset: 0;
+    opacity: 0.42;
+  }
+}
+
+@keyframes drawPlot {
+  from {
+    stroke-dashoffset: 1800;
+    opacity: 0;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes showPoint {
   to {
     opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
   }
 }
 
-@keyframes heroDescriptionReveal {
-  from {
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateY(18px);
-  }
+/* Планшеты и телефоны */
 
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes dotsReveal {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 0.16;
-  }
-}
-
-@media (max-width: 900px) {
-  .title {
-    font-size: clamp(46px, 8vw, 72px);
-  }
-
-  .description {
-    max-width: 600px;
-
-    font-size: 17px;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 760px) {
   .hero {
-    background-image:
-      linear-gradient(
-        90deg,
-        rgba(0, 35, 31, 0.92),
-        rgba(0, 54, 49, 0.72)
-      ),
-      linear-gradient(
-        0deg,
-        rgba(0, 35, 31, 0.58),
-        transparent 70%
-      ),
-      url("/images/hero/alpix-residential.webp");
-
-    background-position: 58% center;
+    background-position: 55% center;
   }
 
   .content {
-    padding-top: 84px;
-    padding-bottom: 32px;
+    padding: 100px var(--page-gutter) 60px;
+  }
+
+  .copy {
+    width: 100%;
+    margin-left: 0;
   }
 
   .title {
-    font-size: clamp(76px, 19vw, 128px);
-    line-height: 0.9;
-    letter-spacing: -0.07em;
+    font-size: clamp(4.5rem, 21vw, 7rem);
   }
 
   .description {
-    max-width: 420px;
-
-    margin-top: 22px;
-
-    font-size: 15px;
-    line-height: 1.65;
+    max-width: 430px;
+    margin-top: 24px;
+    font-size: 1rem;
   }
 
-  .dots {
-    background-size: 13px 13px;
+  .plotBoundary,
+  .plotDetail,
+  .plotPoint {
+    display: none;
+  }
+
+  .contour {
+    stroke: rgba(245, 244, 236, 0.3);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .title,
-  .description,
-  .dots {
-    animation: none;
+/* Пользователь выбрал уменьшение движения */
 
+@media (prefers-reduced-motion: reduce) {
+  .contour,
+  .plotBoundary,
+  .plotDetail,
+  .plotPoint {
+    animation: none;
+  }
+
+  .contour {
+    stroke-dashoffset: 0;
+    opacity: 0.42;
+  }
+
+  .plotBoundary {
+    stroke-dashoffset: 0;
     opacity: 1;
-    filter: none;
-    transform: none;
+  }
+
+  .plotDetail {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  .plotPoint {
+    opacity: 1;
   }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import Header from "@/components/layout/Header/Header";
 import Hero from "@/components/sections/Hero/Hero";
 import About from "@/components/sections/About/About";
@@ -7,6 +9,7 @@ import Services from "@/components/sections/Services/Services";
 import Advantages from "@/components/sections/Advantages/Advantages";
 import Geography from "@/components/sections/Geography/Geography";
 import Contact from "@/components/sections/Contact/Contact";
+import DevelopmentStory from "@/components/sections/DevelopmentStory/DevelopmentStory";
 
 export default function Home() {
   return (
@@ -15,6 +18,7 @@ export default function Home() {
 
       <main id="main">
         <Hero />
+        <DevelopmentStory />
         <About />
         <Audiences />
         <Projects />

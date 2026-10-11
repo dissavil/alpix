@@ -1,0 +1,217 @@
+.story {
+  padding: clamp(76px, 9vw, 140px) var(--page-gutter);
+  background: var(--alpix-ivory);
+  color: var(--alpix-text);
+}
+
+.storyHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.65fr);
+  align-items: end;
+  gap: 64px;
+  margin-bottom: 56px;
+}
+
+.storyCopy {
+  max-width: 840px;
+}
+
+.title {
+  max-width: 780px;
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 5.8vw, 6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 28px 0 0;
+
+  color: var(--alpix-muted);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.8;
+}
+
+.sideNote {
+  max-width: 360px;
+  margin: 0 0 4px;
+
+  color: var(--alpix-text);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* Генплан */
+
+.planPanel {
+  position: relative;
+  overflow: hidden;
+  background: var(--alpix-green-dark);
+  border: 1px solid rgba(0, 54, 49, 0.2);
+}
+
+.plan {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Топографические линии */
+
+.terrainLines {
+  stroke: rgba(245, 244, 236, 0.3);
+  stroke-width: 1;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 0;
+}
+
+/* Внешняя граница участка */
+
+.plotBoundary {
+  fill: rgba(255, 237, 168, 0.035);
+  stroke: var(--alpix-butter);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-dasharray: 1100;
+  stroke-dashoffset: 0;
+
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 5px rgba(255, 237, 168, 0.12));
+}
+
+/* Дороги */
+
+.roads {
+  stroke: rgba(245, 244, 236, 0.6);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+
+/* Здания */
+
+.buildings {
+  fill: rgba(255, 237, 168, 0.19);
+  stroke: var(--alpix-butter);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+
+/* Дополнительные линии плана */
+
+.planDetails {
+  stroke: rgba(245, 244, 236, 0.46);
+  stroke-width: 1;
+}
+
+/* Точки границ */
+
+.plotPoints {
+  fill: var(--alpix-butter);
+}
+
+/* Подпись к генплану */
+
+.planCaption {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+  left: 20px;
+
+  max-width: 440px;
+  margin: 0;
+  padding: 8px 12px;
+
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(0, 40, 35, 0.9);
+
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+/* Показатели */
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  padding: 36px 0 42px;
+  border-bottom: 1px solid var(--alpix-border);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.metricNumber {
+  color: var(--alpix-green);
+
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+
+.metricLabel {
+  color: var(--alpix-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Четыре этапа */
+
+.stages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+
+  margin-top: 54px;
+}
+
+.stage {
+  min-width: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--alpix-border);
+}
+
+.stageLine {
+  display: block;
+  width: 36px;
+  height: 2px;
+  margin-bottom: 22px;
+
+  background: var(--alpix-green);
+
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.stage h3 {
+  margin: 0 0 12px;
+
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.stage p {
+  max-width: 290px;
+  margin: 0;
+
+  color: var(--alpix-muted);
+  font-size: 0.9rem;
+}
