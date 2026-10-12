@@ -1,19 +1,22 @@
 .projectSequence {
   position: relative;
+  z-index: 1;
   background: var(--liquid-deep, #011d1c);
   color: var(--liquid-mist, #edfffe);
 }
 
 .projectScene {
   position: relative;
+  height: 100vh;
   height: 100svh;
-  min-height: 100svh;
+  min-height: 620px;
   background: var(--liquid-deep, #011d1c);
 }
 
 .projectStage {
   position: relative;
   width: 100%;
+  height: 100vh;
   height: 100svh;
   min-height: 620px;
   overflow: hidden;
@@ -46,23 +49,25 @@
   background:
     linear-gradient(
       90deg,
-      rgba(1, 29, 28, 0.8) 0%,
-      rgba(1, 29, 28, 0.44) 42%,
-      rgba(1, 29, 28, 0.08) 100%
+      rgba(1, 29, 28, 0.85) 0%,
+      rgba(1, 29, 28, 0.5) 45%,
+      rgba(1, 29, 28, 0.1) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(1, 29, 28, 0.5) 0%,
-      transparent 55%
+      rgba(1, 29, 28, 0.6) 0%,
+      transparent 60%
     );
 }
 
+/* Строго привязываем контент к единым отступам страницы --page-gutter */
 .projectContent {
   position: absolute;
   z-index: 2;
-  left: clamp(24px, 7vw, 104px);
-  bottom: clamp(50px, 9vh, 112px);
-  width: min(760px, 82vw);
+  left: var(--page-gutter, 48px);
+  right: var(--page-gutter, 48px);
+  bottom: clamp(48px, 8vh, 96px);
+  width: min(780px, calc(100% - (var(--page-gutter, 48px) * 2)));
   color: var(--liquid-mist, #edfffe);
 }
 
@@ -71,7 +76,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 10px 22px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-size: 11px;
   line-height: 1.4;
   letter-spacing: 0.12em;
@@ -82,39 +87,40 @@
 .projectTitle {
   max-width: 100%;
   margin: 0;
-  font-size: clamp(3rem, 8.6vw, 8.5rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6.5vw, 7rem);
   font-weight: 400;
-  line-height: 0.91;
-  letter-spacing: -0.075em;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
   text-wrap: balance;
   overflow-wrap: anywhere;
 }
 
 .projectDescription {
-  max-width: 440px;
-  margin: 26px 0 0;
-  font-size: clamp(14px, 1.2vw, 17px);
+  max-width: 460px;
+  margin: 22px 0 0;
+  font-size: clamp(14px, 1.1vw, 16px);
   line-height: 1.6;
-  color: rgba(237, 255, 254, 0.78);
+  color: rgba(237, 255, 254, 0.8);
 }
 
 .projectMetrics {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px 46px;
-  margin-top: 32px;
+  gap: 24px 40px;
+  margin-top: 28px;
 }
 
 .projectMetric {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 6px;
 }
 
 .metricValue {
-  font-size: clamp(22px, 2.3vw, 32px);
+  font-size: clamp(20px, 2vw, 28px);
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.04em;
 }
 
 .metricLabel {
@@ -126,8 +132,8 @@
 .projectIndex {
   position: absolute;
   z-index: 2;
-  top: 42px;
-  right: clamp(24px, 7vw, 104px);
+  top: 36px;
+  right: var(--page-gutter, 48px);
   display: flex;
   gap: 9px;
   align-items: center;
@@ -146,12 +152,12 @@
   top: 50%;
   left: 50%;
   display: flex;
-  width: 112px;
-  height: 112px;
+  width: 104px;
+  height: 104px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 6px;
   border-radius: 50%;
   background: var(--liquid-cyan, #83f9ee);
   color: var(--liquid-deep, #011d1c);
@@ -172,62 +178,21 @@
   transform: translate(-50%, -50%) scale(1);
 }
 
-.viewCaseCursor:focus-visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
-  outline: 2px solid var(--liquid-mist, #edfffe);
-  outline-offset: 5px;
-}
-
 .mobileCaseLink {
   display: none;
 }
 
-/* Обычная прокрутка без закрепления на мобильных. */
 @media (max-width: 760px) {
-  .projectScene,
-  .projectStage {
-    height: 100svh;
-    min-height: 560px;
-  }
-
   .projectContent {
-    left: 24px;
-    right: 24px;
-    bottom: 104px;
+    left: var(--page-gutter, 22px);
+    right: var(--page-gutter, 22px);
+    bottom: 88px;
     width: auto;
   }
 
-  .projectMeta {
-    gap: 8px 14px;
-    margin-bottom: 18px;
-    font-size: 10px;
-  }
-
-  .projectTitle {
-    font-size: clamp(2.8rem, 13vw, 5rem);
-    letter-spacing: -0.07em;
-  }
-
-  .projectDescription {
-    max-width: 460px;
-    margin-top: 18px;
-    font-size: 14px;
-  }
-
-  .projectMetrics {
-    gap: 20px 28px;
-    margin-top: 24px;
-  }
-
-  .metricValue {
-    font-size: 23px;
-  }
-
   .projectIndex {
-    top: 28px;
-    right: 24px;
+    top: 24px;
+    right: var(--page-gutter, 22px);
   }
 
   .viewCaseCursor {
@@ -237,27 +202,15 @@
   .mobileCaseLink {
     position: absolute;
     z-index: 4;
-    right: 24px;
-    bottom: 34px;
+    right: var(--page-gutter, 22px);
+    bottom: 28px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding-bottom: 8px;
+    gap: 8px;
+    padding-bottom: 4px;
     border-bottom: 1px solid rgba(237, 255, 254, 0.6);
     color: var(--liquid-mist, #edfffe);
-    font-size: 12px;
+    font-size: 11px;
     text-decoration: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .projectFrame {
-    transform: none !important;
-    border-radius: 0 !important;
-    will-change: auto;
-  }
-
-  .viewCaseCursor {
-    transition: none;
   }
 }
