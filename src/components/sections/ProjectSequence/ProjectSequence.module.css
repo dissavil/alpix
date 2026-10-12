@@ -1,26 +1,27 @@
 .projectSequence {
   position: relative;
-  z-index: 1;
   background: var(--liquid-deep, #011d1c);
   color: var(--liquid-mist, #edfffe);
 }
 
 .projectScene {
   position: relative;
-  height: 100vh;
-  height: 100svh;
-  min-height: 620px;
+  height: 125vh;
+  height: 125svh;
   background: var(--liquid-deep, #011d1c);
 }
 
 .projectStage {
-  position: relative;
+  position: sticky;
+  top: 0;
+
   width: 100%;
   height: 100vh;
   height: 100svh;
-  min-height: 620px;
+
   overflow: hidden;
   isolation: isolate;
+
   background: var(--liquid-deep, #011d1c);
 }
 
@@ -28,8 +29,10 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+
   overflow: hidden;
   transform-origin: center center;
+
   background: var(--liquid-kelp, #003734);
   will-change: transform, border-radius;
 }
@@ -182,17 +185,33 @@
   display: none;
 }
 
-@media (max-width: 760px) {
-  .projectContent {
-    left: var(--page-gutter, 22px);
-    right: var(--page-gutter, 22px);
-    bottom: 88px;
-    width: auto;
+@media (max-width: 760px), (hover: none), (pointer: coarse),
+  (prefers-reduced-motion: reduce) {
+  .projectScene {
+    height: auto;
+    padding: 0 var(--page-gutter, 22px) 36px;
   }
 
+  .projectStage {
+    position: relative;
+    top: auto;
+
+    height: min(78svh, 760px);
+    min-height: 500px;
+
+    border-radius: 16px;
+  }
+
+  .projectFrame {
+    border-radius: 16px !important;
+    transform: none !important;
+  }
+
+  .projectContent,
   .projectIndex {
-    top: 24px;
-    right: var(--page-gutter, 22px);
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .viewCaseCursor {
@@ -204,11 +223,14 @@
     z-index: 4;
     right: var(--page-gutter, 22px);
     bottom: 28px;
+
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding-bottom: 4px;
+
+    padding-bottom: 5px;
     border-bottom: 1px solid rgba(237, 255, 254, 0.6);
+
     color: var(--liquid-mist, #edfffe);
     font-size: 11px;
     text-decoration: none;

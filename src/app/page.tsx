@@ -9,6 +9,7 @@ import Advantages from "@/components/sections/Advantages/Advantages";
 import Geography from "@/components/sections/Geography/Geography";
 import Contact from "@/components/sections/Contact/Contact";
 import ProjectSequence from "@/components/sections/ProjectSequence/ProjectSequence";
+import ProjectIntro from "@/components/sections/ProjectIntro/ProjectIntro";
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
 
       <main id="main">
         <Hero />
-        <ProjectSequence />
         <About />
+        <ProjectSequence />
         <Audiences />
         <Services />
         <Advantages />

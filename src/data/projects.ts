@@ -1,3 +1,8 @@
+export interface ProjectMetric {
+  value: string;
+  label: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -7,6 +12,7 @@ export interface Project {
   image: string;
   facts?: string;
   images?: string[];
+  metrics?: ProjectMetric[];
 }
 
 export const projects: Project[] = [
@@ -19,6 +25,10 @@ export const projects: Project[] = [
       "Жилой комплекс с несколькими блоками таунхаусов в окружении горного ландшафта.",
     image: "/images/projects/blackberry-hills/cover.webp",
     facts: "6 блоков · 43 таунхауса",
+    metrics: [
+      { value: "6", label: "блоков" },
+      { value: "43", label: "таунхауса" },
+    ],
   },
   {
     slug: "private-villas",
@@ -29,6 +39,10 @@ export const projects: Project[] = [
       "Разработка проекта и реализация двух индивидуальных вилл.",
     image: "/images/projects/private-villas/cover.webp",
     facts: "2 виллы · по 350 м²",
+    metrics: [
+      { value: "2", label: "виллы" },
+      { value: "350 м²", label: "каждая" },
+    ],
   },
   {
     slug: "ethno-residence",
@@ -56,5 +70,10 @@ export const projects: Project[] = [
     description:
       "Анализ потенциала земельного участка и подготовка технико-экономических показателей для проекта застройки.",
     image: "/images/projects/burunday/cover.webp",
+    metrics: [
+      { value: "6,67 га", label: "площадь участка" },
+      { value: "3 201", label: "квартира" },
+      { value: "258", label: "парковочных мест" },
+    ],
   },
 ];

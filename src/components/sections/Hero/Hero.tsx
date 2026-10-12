@@ -18,12 +18,11 @@ export default function Hero() {
 
   useEffect(() => {
     const sequence = sequenceRef.current;
-    const stage = stageRef.current;
     const frame = frameRef.current;
     const content = contentRef.current;
     const bottom = bottomRef.current;
 
-    if (!sequence || !stage || !frame || !content || !bottom) {
+    if (!sequence || !frame || !content || !bottom) {
       return;
     }
 
@@ -32,68 +31,57 @@ export default function Hero() {
     media.add(
       "(min-width: 761px) and (prefers-reduced-motion: no-preference)",
       () => {
-        const timeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: sequence,
-            start: "top top",
+        const context = gsap.context(() => {
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              id: "alpix-hero-sequence",
+              trigger: sequence,
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 0.55,
+              invalidateOnRefresh: true,
+            },
+          });
 
-            // Протяжённость scroll-driven сцены.
-            end: () => `+=${Math.round(window.innerHeight * 0.75)}`,
+          timeline.fromTo(
+            frame,
+            {
+              scale: 1,
+              borderRadius: "0px",
+            },
+            {
+              scale: 0.86,
+              borderRadius: "24px",
+              duration: 1,
+              ease: "none",
+            },
+            0,
+          );
 
-            // Закрепляем сцену, а анимируем её вложенные элементы.
-            pin: stage,
-            pinSpacing: false,
+          timeline.to(
+            content,
+            {
+              autoAlpha: 0,
+              y: -22,
+              duration: 0.18,
+              ease: "none",
+            },
+            0.68,
+          );
 
-            scrub: 0.8,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
+          timeline.to(
+            bottom,
+            {
+              autoAlpha: 0,
+              y: -10,
+              duration: 0.14,
+              ease: "none",
+            },
+            0.64,
+          );
+        }, sequence);
 
-        // 1. Фотография уменьшается, вокруг открывается фон.
-        timeline.fromTo(
-          frame,
-          {
-            scale: 1,
-            borderRadius: "0px",
-          },
-          {
-            scale: 0.88,
-            borderRadius: "22px",
-            duration: 1,
-            ease: "none",
-          },
-          0,
-        );
-
-        // 2. Заголовок и описание уходят независимо от фотографии.
-        timeline.to(
-          content,
-          {
-            autoAlpha: 0,
-            y: -24,
-            duration: 0.2,
-            ease: "none",
-          },
-          0.76,
-        );
-
-        // 3. Нижняя строка исчезает чуть раньше.
-        timeline.to(
-          bottom,
-          {
-            autoAlpha: 0,
-            y: -10,
-            duration: 0.16,
-            ease: "none",
-          },
-          0.68,
-        );
-
-        return () => {
-          timeline.scrollTrigger?.kill();
-          timeline.kill();
-        };
+        return () => context.revert();
       },
     );
 
