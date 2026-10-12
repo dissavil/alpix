@@ -1,0 +1,215 @@
+.projectSequenceItem {
+  position: relative;
+  height: 160vh;
+  height: 160svh;
+  background: var(--liquid-abyss);
+}
+
+.projectStage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--liquid-abyss);
+  isolation: isolate;
+}
+
+.projectFrame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: var(--liquid-kelp);
+  background-position: center;
+  background-size: cover;
+  transform-origin: center center;
+  will-change: transform, border-radius;
+}
+
+.projectMedia {
+  position: absolute;
+  inset: 0;
+  background-color: var(--liquid-kelp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.projectShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1, 29, 28, 0.63) 0%,
+      rgba(1, 29, 28, 0.12) 72%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(1, 29, 28, 0.82) 0%,
+      rgba(1, 29, 28, 0.08) 68%
+    );
+  pointer-events: none;
+}
+
+.projectNumber {
+  position: absolute;
+  top: clamp(28px, 5vw, 72px);
+  right: clamp(24px, 5vw, 72px);
+  z-index: 2;
+  color: rgba(237, 255, 254, 0.88);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.projectInfo {
+  position: absolute;
+  right: var(--page-gutter);
+  bottom: clamp(32px, 7vh, 84px);
+  left: var(--page-gutter);
+  z-index: 3;
+  max-width: 760px;
+  will-change: transform, opacity;
+}
+
+.projectCategory {
+  margin: 0 0 18px;
+  color: var(--liquid-mist);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.projectTitle {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: clamp(3.2rem, 8.2vw, 8rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  overflow-wrap: anywhere;
+}
+
+.projectLocation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 22px 0 0;
+  color: var(--liquid-mist);
+  font-size: 13px;
+}
+
+.projectDetails {
+  max-width: 570px;
+  margin-top: 20px;
+}
+
+.projectDescription {
+  margin: 0;
+  color: rgba(237, 255, 254, 0.84);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.projectFacts {
+  margin: 14px 0 0;
+  color: var(--liquid-lavender);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* For touch devices, keep the portfolio in normal document flow. */
+
+@media (max-width: 760px), (hover: none), (pointer: coarse) {
+  .projectSequenceItem {
+    height: auto;
+    padding: 0 var(--page-gutter) 36px;
+  }
+
+  .projectStage {
+    height: min(78svh, 760px);
+    min-height: 500px;
+    border-radius: 16px;
+  }
+
+  .projectFrame {
+    inset: 0;
+    border-radius: 16px !important;
+    transform: none !important;
+  }
+
+  .projectShade {
+    background: linear-gradient(
+      0deg,
+      rgba(1, 29, 28, 0.88) 0%,
+      rgba(1, 29, 28, 0.08) 78%
+    );
+  }
+
+  .projectInfo {
+    right: 20px;
+    bottom: 24px;
+    left: 20px;
+    max-width: none;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .projectCategory {
+    margin-bottom: 12px;
+    font-size: 10px;
+  }
+
+  .projectTitle {
+    font-size: clamp(2.6rem, 10vw, 4.2rem);
+    letter-spacing: -0.05em;
+  }
+
+  .projectLocation {
+    margin-top: 14px;
+    font-size: 12px;
+  }
+
+  .projectDetails {
+    margin-top: 14px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .projectDescription {
+    font-size: 13px;
+  }
+
+  .projectFacts {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectSequenceItem {
+    height: auto;
+    padding: 0 var(--page-gutter) 36px;
+  }
+
+  .projectStage {
+    height: min(78svh, 760px);
+    min-height: 500px;
+    border-radius: 16px;
+  }
+
+  .projectFrame {
+    border-radius: 16px !important;
+    transform: none !important;
+  }
+
+  .projectInfo,
+  .projectDetails {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

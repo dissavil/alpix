@@ -1,55 +1,43 @@
 @font-face {
   font-family: "Igra Sans";
-  src: url("/fonts/IgraSans.otf") format("otf");
+  src: url("/fonts/IgraSans.otf") format("opentype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 
 :root {
-  /* BRAND COLORS */
-
+  /* Existing ALPIX tokens kept for the current informational sections. */
   --alpix-green: #003631;
   --alpix-green-hover: #0a4942;
   --alpix-green-dark: #002823;
-
   --alpix-butter: #ffeda8;
-
-  /* SURFACES */
-
   --alpix-ivory: #f5f4ec;
   --alpix-white: #ffffff;
   --alpix-surface-dark: #002823;
-
-  /* TEXT */
-
   --alpix-text: #18302c;
   --alpix-muted: #687772;
-
   --alpix-text-light: #ffffff;
   --alpix-text-light-muted: #c5d2cb;
-
-  /* BORDERS */
-
   --alpix-border: #d9e1db;
   --alpix-border-dark: rgba(255, 255, 255, 0.16);
 
-  /* TYPOGRAPHY */
+  /* Liquid palette used by the scroll-driven scenes and navigation. */
+  --liquid-abyss: #012624;
+  --liquid-deep: #011d1c;
+  --liquid-kelp: #003734;
+  --liquid-lavender: #fde9ff;
+  --liquid-silver: #bbc7c6;
+  --liquid-mist: #edfffe;
+  --liquid-cyan: #83f9ee;
 
   --font-display: "Igra Sans", var(--font-manrope), sans-serif;
   --font-body: var(--font-manrope), sans-serif;
 
-  /* LAYOUT */
   --page-gutter: 48px;
-
-  /* RADIUS */
-
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-
-  /* MOTION */
-
+  --radius-sm: 6px;
+  --radius-md: 16px;
+  --radius-lg: 16px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -62,17 +50,35 @@ html {
   scroll-padding-top: 100px;
 }
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
-
   background: var(--alpix-ivory);
   color: var(--alpix-text);
-
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -108,8 +114,9 @@ a {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--alpix-butter);
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--liquid-mist);
   outline-offset: 4px;
 }
 
@@ -140,8 +147,8 @@ h4 {
 }
 
 ::selection {
-  color: var(--alpix-green);
-  background: var(--alpix-butter);
+  color: var(--liquid-abyss);
+  background: var(--liquid-lavender);
 }
 
 .skip-link {
@@ -149,23 +156,25 @@ h4 {
   top: 12px;
   left: 12px;
   z-index: 1000;
-
   padding: 12px 18px;
-
-  color: var(--alpix-green);
-  background: var(--alpix-butter);
-
+  color: var(--liquid-abyss);
+  background: var(--liquid-lavender);
   border-radius: var(--radius-sm);
-
   font-size: 14px;
   font-weight: 700;
-
   transform: translateY(-160%);
   transition: transform 200ms var(--ease-out);
 }
 
 .skip-link:focus {
   transform: translateY(0);
+}
+
+.site-footer {
+  padding: 22px var(--page-gutter);
+  color: var(--alpix-text-light-muted);
+  background: var(--liquid-deep);
+  font-size: 12px;
 }
 
 @media (max-width: 760px) {
