@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
 import styles from "./Header.module.css";
 
@@ -14,28 +14,22 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const hero = document.getElementById("top");
+    const updateHeader = () => {
+      setIsScrolled(window.scrollY > 24);
+    };
 
-    if (!hero) {
-      setIsVisible(window.scrollY > 80);
-      return;
-    }
+    updateHeader();
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(!entry.isIntersecting);
-      },
-      {
-        threshold: 0,
-      },
-    );
+    window.addEventListener("scroll", updateHeader, {
+      passive: true,
+    });
 
-    observer.observe(hero);
-
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("scroll", updateHeader);
+    };
   }, []);
 
   function closeMenu() {
@@ -44,11 +38,11 @@ export default function Header() {
 
   return (
     <header
-      className={`${styles.header} ${
-        isVisible ? styles.visible : ""
-      }`}
-      aria-hidden={!isVisible}
-      inert={!isVisible}
+      className={[
+        styles.header,
+        isScrolled ? styles.scrolled : styles.transparent,
+        menuOpen ? styles.menuOpen : "",
+      ].join(" ")}
     >
       <div className={styles.inner}>
         <Link
@@ -57,15 +51,10 @@ export default function Header() {
           aria-label="ALPIX — главная страница"
           onClick={closeMenu}
         >
-          <span className={styles.brandName}>
-            ALPIX
-          </span>
+          ALPIX
         </Link>
 
-        <nav
-          className={styles.desktopNav}
-          aria-label="Основная навигация"
-        >
+        <nav className={styles.desktopNav} aria-label="Основная навигация">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -77,28 +66,28 @@ export default function Header() {
           ))}
         </nav>
 
+        <a href="#contact" className={styles.headerCta}>
+          Обсудить проект
+          <ArrowUpRight size={15} strokeWidth={1.7} />
+        </a>
+
         <button
           type="button"
           className={styles.menuButton}
-          aria-label={
-            menuOpen ? "Закрыть меню" : "Открыть меню"
-          }
+          aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? (
-            <X size={24} />
-          ) : (
-            <Menu size={24} />
-          )}
+          {menuOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
 
         <nav
           id="mobile-navigation"
-          className={`${styles.mobileNav} ${
-            menuOpen ? styles.mobileNavOpen : ""
-          }`}
+          className={[
+            styles.mobileNav,
+            menuOpen ? styles.mobileNavOpen : "",
+          ].join(" ")}
           aria-label="Мобильная навигация"
           aria-hidden={!menuOpen}
           inert={!menuOpen}
@@ -111,8 +100,18 @@ export default function Header() {
               onClick={closeMenu}
             >
               {link.label}
+              <ArrowUpRight size={17} />
             </a>
           ))}
+
+          <a
+            href="#contact"
+            className={styles.mobileCta}
+            onClick={closeMenu}
+          >
+            Обсудить проект
+            <ArrowUpRight size={17} />
+          </a>
         </nav>
       </div>
     </header>

@@ -9,7 +9,7 @@ import Services from "@/components/sections/Services/Services";
 import Advantages from "@/components/sections/Advantages/Advantages";
 import Geography from "@/components/sections/Geography/Geography";
 import Contact from "@/components/sections/Contact/Contact";
-import DevelopmentStory from "@/components/sections/DevelopmentStory/DevelopmentStory";
+import ProjectSequence from "@/components/sections/ProjectSequence/ProjectSequence";
 
 export default function Home() {
   return (
@@ -18,10 +18,10 @@ export default function Home() {
 
       <main id="main">
         <Hero />
-        <DevelopmentStory />
+        <ProjectSequence />
+        <Projects />
         <About />
         <Audiences />
-        <Projects />
         <Services />
         <Advantages />
         <Geography />
@@ -36,7 +36,7 @@ export default function Home() {
           fontSize: "12px",
         }}
       >
-        © {new Date().getFullYear()} ALPIX · Строительная компания
+        © ALPIX · Строительная компания
       </footer>
     </>
   );

@@ -6,6 +6,7 @@ export interface Project {
   description: string;
   image: string;
   facts?: string;
+  images?: string[];
 }
 
 export const projects: Project[] = [

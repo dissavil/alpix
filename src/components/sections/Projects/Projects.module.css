@@ -1,0 +1,376 @@
+.projects {
+  padding: clamp(80px, 10vw, 150px) var(--page-gutter, 48px);
+
+  color: #ffffff;
+  background: #012624;
+}
+
+/* Заголовок секции */
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+  align-items: end;
+  gap: 64px;
+
+  margin-bottom: clamp(64px, 8vw, 112px);
+}
+
+.headerMain {
+  max-width: 900px;
+}
+
+.eyebrow {
+  margin: 0 0 28px;
+
+  color: #bbc7c6;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin: 0;
+
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: clamp(2.8rem, 6.2vw, 6rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.headerDescription {
+  max-width: 390px;
+  margin: 0 0 5px auto;
+
+  color: #bbc7c6;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Список проектов */
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(72px, 10vw, 140px);
+}
+
+.project {
+  min-width: 0;
+}
+
+/* Информация о проекте */
+
+.projectHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
+  align-items: end;
+  gap: 48px;
+
+  margin-bottom: 28px;
+}
+
+.projectIdentity {
+  min-width: 0;
+}
+
+.projectCategory {
+  margin: 0 0 12px;
+
+  color: #bbc7c6;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.projectTitle {
+  margin: 0;
+
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.045em;
+
+  overflow-wrap: anywhere;
+}
+
+.projectLocation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 18px 0 0;
+
+  color: #bbc7c6;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.projectSummary {
+  max-width: 460px;
+  justify-self: end;
+  width: 100%;
+}
+
+.projectDescription {
+  margin: 0;
+
+  color: #edfffe;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.projectFacts {
+  margin: 16px 0 0;
+
+  color: #fde9ff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Галерея */
+
+.gallery {
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+}
+
+.gallery:focus-visible {
+  outline: 2px solid #edfffe;
+  outline-offset: 6px;
+}
+
+.galleryTrack {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1px;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+  scrollbar-color: #426c67 transparent;
+}
+
+.galleryTrack::-webkit-scrollbar {
+  height: 5px;
+}
+
+.galleryTrack::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.galleryTrack::-webkit-scrollbar-thumb {
+  background: #426c67;
+  border-radius: 6px;
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 86%;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+
+  margin: 0;
+  overflow: hidden;
+
+  background: #003734;
+  border-radius: 16px;
+  scroll-snap-align: start;
+}
+
+.singleImage .slide {
+  flex-basis: 100%;
+}
+
+.projectImage {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Лёгкое движение только на фотографии */
+
+@media (hover: hover) and (pointer: fine) {
+  .project:hover .projectImage {
+    transform: scale(1.025);
+  }
+}
+
+.imageCaption {
+  position: absolute;
+  inset: auto 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  min-height: 88px;
+  padding: 24px 28px;
+
+  color: #ffffff;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 29, 28, 0.82),
+    rgba(1, 29, 28, 0)
+  );
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Подсказка горизонтального скролла */
+
+.galleryHint {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 14px;
+
+  color: #bbc7c6;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Нижняя строка проекта */
+
+.projectFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-top: 18px;
+  padding-top: 16px;
+
+  color: #bbc7c6;
+  border-top: 1px solid rgba(237, 255, 254, 0.15);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.projectType {
+  text-align: right;
+}
+
+/* Планшеты */
+
+@media (max-width: 900px) {
+  .sectionHeader {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .headerDescription {
+    margin-left: 0;
+  }
+
+  .projectHeader {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .projectSummary {
+    justify-self: start;
+  }
+}
+
+/* Телефоны */
+
+@media (max-width: 600px) {
+  .projects {
+    padding-block: 76px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 60px;
+  }
+
+  .eyebrow {
+    margin-bottom: 22px;
+    font-size: 10px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(2.7rem, 11vw, 4rem);
+    letter-spacing: -0.05em;
+  }
+
+  .headerDescription {
+    font-size: 14px;
+  }
+
+  .projectList {
+    gap: 76px;
+  }
+
+  .projectHeader {
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+
+  .projectTitle {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .projectLocation {
+    margin-top: 14px;
+  }
+
+  .projectDescription {
+    font-size: 14px;
+  }
+
+  .galleryTrack {
+    gap: 10px;
+  }
+
+  .slide {
+    flex-basis: 88%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+  }
+
+  .singleImage .slide {
+    flex-basis: 100%;
+  }
+
+  .imageCaption {
+    min-height: 72px;
+    padding: 18px;
+  }
+
+  .projectFooter {
+    font-size: 10px;
+  }
+}
+
+/* Доступность */
+
+@media (prefers-reduced-motion: reduce) {
+  .projectImage {
+    transition: none;
+  }
+}

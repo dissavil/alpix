@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
+import SmoothScroll from "@/components/animation/SmoothScroll/SmoothScroll";
 
 import "./globals.css";
 
@@ -41,7 +42,7 @@ export default function RootLayout({
           Перейти к содержимому
         </a>
 
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

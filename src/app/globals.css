@@ -8,10 +8,13 @@
 
 :root {
   /* BRAND COLORS */
+  --alpix-green: #012624;
+  --alpix-green-hover: #003734;
+  --alpix-green-dark: #011d1c;
 
-  --alpix-green: #003631;
-  --alpix-green-hover: #0a4942;
-  --alpix-green-dark: #002823;
+  --alpix-silver: #bbc7c6;
+  --alpix-mist: #edfffe;
+  --alpix-phosphor: #fde9ff;
 
   --alpix-butter: #ffeda8;
 
@@ -51,6 +54,15 @@
   /* MOTION */
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --liquid-abyss: #012624;
+  --liquid-deep: #011d1c;
+  --liquid-kelp: #003734;
+
+  --liquid-lavender: #fde9ff;
+  --liquid-silver: #bbc7c6;
+  --liquid-mist: #edfffe;
+  --liquid-cyan: #83f9ee;
 }
 
 * {
@@ -166,6 +178,27 @@ h4 {
 
 .skip-link:focus {
   transform: translateY(0);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 @media (max-width: 760px) {
