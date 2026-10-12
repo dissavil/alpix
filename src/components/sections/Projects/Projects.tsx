@@ -1,86 +1,40 @@
-import styles from "../Sections.module.css";
 import { projects } from "@/data/projects";
+
+import ProjectScene from "./ProjectScene";
+import styles from "./Projects.module.css";
 
 export default function Projects() {
   return (
     <section
       id="projects"
-      className={styles.projectsSection}
+      className={styles.projects}
+      aria-labelledby="projects-title"
     >
-      <div className={styles.sectionInner}>
-        <header className={styles.projectsHeader}>
-          <div>
-            <p className={styles.kicker}>
-              03 / Портфолио
-            </p>
-
-            <h2 className={styles.sectionTitle}>
-              Реализуем не на словах,
-              <br />
-              а на проектах
-            </h2>
-          </div>
-
-          <p className={styles.projectsIntro}>
-            Жилая недвижимость, частное строительство
-            и девелоперские проекты в Алматы
-            и Алматинской области.
-          </p>
-        </header>
-
-        <div className={styles.projectGrid}>
-          {projects.map((project, index) => (
-            <article
-              key={project.slug}
-              className={styles.projectCard}
-            >
-              <div
-                className={styles.projectVisual}
-                style={{
-                  backgroundImage: `
-                    linear-gradient(
-                      180deg,
-                      rgba(0, 35, 31, 0.06) 10%,
-                      rgba(0, 35, 31, 0.78) 100%
-                    ),
-                    url("${project.image}")
-                  `,
-                }}
-                role="img"
-                aria-label={`Визуальное представление проекта ${project.title}`}
-              >
-                <span className={styles.projectLabel}>
-                  ПРОЕКТ: {project.category}
-                </span>
-
-                <span className={styles.projectVisualNumber}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-
-              <div className={styles.projectBody}>
-                <div className={styles.projectMeta}>
-                  <span>{project.category}</span>
-                  <span>{project.location}</span>
-                </div>
-
-                <h3 className={styles.projectTitle}>
-                  {project.title}
-                </h3>
-
-                <p className={styles.projectDescription}>
-                  {project.description}
-                </p>
-
-                {project.facts && (
-                  <p className={styles.projectFacts}>
-                    {project.facts}
-                  </p>
-                )}
-              </div>
-            </article>
-          ))}
+      <header className={styles.sectionHeader}>
+        <div>
+          <p className={styles.eyebrow}>ПОРТФОЛИО ALPIX</p>
+          <h2 id="projects-title" className={styles.sectionTitle}>
+            Проекты, которые
+            <br />
+            становятся реальностью.
+          </h2>
         </div>
+
+        <p className={styles.sectionDescription}>
+          Жилая недвижимость, частное строительство и девелопмент
+          в Алматы и Алматинской области. Каждый проект — отдельная
+          локация, задача и архитектурное решение.
+        </p>
+      </header>
+
+      <div className={styles.projectSequence}>
+        {projects.map((project, index) => (
+          <ProjectScene
+            key={project.slug}
+            project={project}
+            index={index}
+          />
+        ))}
       </div>
     </section>
   );

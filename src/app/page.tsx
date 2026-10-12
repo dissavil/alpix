@@ -15,24 +15,17 @@ export default function Home() {
 
       <main id="main">
         <Hero />
+        <Projects />
         <About />
         <Audiences />
-        <Projects />
         <Services />
         <Advantages />
         <Geography />
         <Contact />
       </main>
 
-      <footer
-        style={{
-          padding: "22px var(--page-gutter)",
-          color: "var(--alpix-text-light-muted)",
-          background: "var(--alpix-green-dark)",
-          fontSize: "12px",
-        }}
-      >
-        © {new Date().getFullYear()} ALPIX · Строительная компания
+      <footer className="site-footer">
+        © 2026 ALPIX · Строительная компания
       </footer>
     </>
   );

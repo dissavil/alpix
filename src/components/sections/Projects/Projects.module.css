@@ -1,0 +1,85 @@
+.projects {
+  padding: clamp(82px, 9vw, 136px) 0 0;
+  color: #ffffff;
+  background: var(--liquid-abyss);
+}
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr);
+  align-items: end;
+  gap: 56px;
+  padding: 0 var(--page-gutter);
+  margin: 0 auto clamp(64px, 8vw, 112px);
+}
+
+.eyebrow {
+  margin: 0 0 24px;
+  color: var(--liquid-silver);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  max-width: 940px;
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: clamp(2.8rem, 6.2vw, 6rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.sectionDescription {
+  max-width: 390px;
+  margin: 0 0 4px auto;
+  color: var(--liquid-silver);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.projectSequence {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .sectionHeader {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sectionDescription {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .projects {
+    padding-top: 76px;
+  }
+
+  .sectionHeader {
+    gap: 22px;
+    margin-bottom: 54px;
+  }
+
+  .eyebrow {
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(2.65rem, 10.8vw, 4.2rem);
+    letter-spacing: -0.05em;
+  }
+
+  .sectionDescription {
+    font-size: 14px;
+  }
+}

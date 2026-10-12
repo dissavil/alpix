@@ -55,5 +55,6 @@ export const projects: Project[] = [
     description:
       "Анализ потенциала земельного участка и подготовка технико-экономических показателей для проекта застройки.",
     image: "/images/projects/burunday/cover.webp",
+    facts: "6,67 га · 3 201 квартира · 258 парковочных мест",
   },
 ];

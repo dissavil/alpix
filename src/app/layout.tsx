@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 
+import SmoothScroll from "@/components/animation/SmoothScroll/SmoothScroll";
+
 import "./globals.css";
 
 const manrope = Manrope({
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#003631",
+  themeColor: "#012624",
   width: "device-width",
   initialScale: 1,
 };
@@ -41,7 +43,7 @@ export default function RootLayout({
           Перейти к содержимому
         </a>
 
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
